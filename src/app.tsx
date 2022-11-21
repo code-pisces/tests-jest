@@ -14,8 +14,14 @@ export function App () {
 
   return (
     <div className='App'>
-      <button onClick={toggleColor} style={{ backgroundColor: color }} disabled={isDisabled}>{buttonText}</button>
-      <input type='checkbox' onChange={event => setIsDisabled(event.target.checked)} />
+      <button onClick={toggleColor} style={{ backgroundColor: isDisabled ? 'gray' : color }} disabled={isDisabled}>{buttonText}</button>
+      <input
+        type='checkbox'
+        defaultChecked={isDisabled}
+        onChange={event => setIsDisabled(event.target.checked)}
+        id='disable-button-checkbox'
+      />
+      <label htmlFor='disable-button-checkbox'>Disable button</label>
     </div>
   )
 }
