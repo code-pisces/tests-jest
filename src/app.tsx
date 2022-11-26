@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import './app.css'
 
+export function replaceCamelWithSpaces (colorName: string) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+}
+
 export function App () {
   const [color, setColor] = useState('red')
   const [isDisabled, setIsDisabled] = useState(false)
@@ -18,6 +22,7 @@ export function App () {
       <input
         type='checkbox'
         defaultChecked={isDisabled}
+        aria-checked={isDisabled}
         onChange={event => setIsDisabled(event.target.checked)}
         id='disable-button-checkbox'
       />
